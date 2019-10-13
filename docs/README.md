@@ -3,6 +3,8 @@
 ## 学习路线
 
 ### [Anaconda](/record/Anaconda)
+### [Jupyter](/record/Jupyter)
+### [Numpy](/record/Numpy)
 
 ## 关键知识
 
