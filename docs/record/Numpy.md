@@ -97,4 +97,46 @@ nd[0:3, 0:3]
 nd[::-1]
 ```
 
-> 图片本质上是三维数组（高度，宽度，色值）
+#### 利用切片修改图片
+图片本质上是三维数组（高度，宽度，色值）
+```python
+# 引入图片库
+from PIL import Image
+
+# 打开图片
+pic = Image.open('xx.jpg')
+
+# 转换为ndarray
+pic_nd = np.array(pic)
+
+# 利用切片操作图片
+# 变绿（本质是切换颜色索引）
+Image.fromArray(pic_nd[:, :, [1, 0, 2])
+# 尺寸压缩（隔5取1）
+Image.fromArray(pic_nd[::5, ::5])
+# 去色（去除最后一维）
+Image.fromArray(pic_nd[:, :, 0])
+
+# 引入图片操作库
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+# 显示图片
+plt.imshow(pic_nd)
+```
+
+### 操作
+```python
+# 变形
+np.reshape(3,4)
+
+# 转置（axe为转置索引）
+np.transpose(pic_nd, axes = (1, 0, 2))
+
+# 级联（数组合并，1行4列*2 = 2行4列）
+np.concatenate([pic_nd, pic_nd])
+
+# 按指定方向级联（axis参数为级联维度下标，如二维行列数组，列下标为1）
+# 按列级联
+np.concatenate([nd1, nd2], axis = 1)
+```
